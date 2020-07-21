@@ -20,6 +20,13 @@
   },
   "plugins": ["@typescript-eslint", "prettier"],
   "rules": {
+    "prettier/prettier": "error",
+    "class-methods-use-this": "off",
+    // Define que todas as interfaces irão começar com a letra I
+    "@typescript-eslint/interface-name-prefix": [
+      "error",
+      { "prefixWithI": "always" }
+    ],
     "settings": {
       "import/resolver": {
         "typescript": {}
@@ -31,8 +38,6 @@
       {
         "ts": "never"
       }
-    ],
-    "prettier/prettier": "error",
-    "class-methods-use-this": "off"
+    ]
   }
 }

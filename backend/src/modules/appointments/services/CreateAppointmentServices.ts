@@ -1,9 +1,8 @@
-import Appointment from '../models/Appointment';
+import Appointment from '../infra/typeorm/entities/Appointment';
 import { startOfHour } from 'date-fns';
-import { getCustomRepository } from 'typeorm';
-import AppError from '../errors/AppError';
-import AppointmentsRepository from '../repositories/AppointmentsRepository';
-
+import AppError from '@shared/errors/AppError';
+import IAppointmentsRepository from '../repositories/IAppointmentsRepository';
+import { inject, injectable } from 'tsyringe';
 
 interface Request {
   provider_id: string;
@@ -18,26 +17,28 @@ interface Request {
  * I:
  * D: Dependency Invertion Principle
  */
-
+@injectable()
 class CreateAppointmentService {
+  constructor(
+    @inject('AppointmentsRepository')
+    private appointmentsRepository: IAppointmentsRepository,
+  ) {}
 
   public async execute({ date, provider_id }: Request): Promise<Appointment> {
     const appointmentDate = startOfHour(date);
 
-    const appointmentsRepository = getCustomRepository(AppointmentsRepository);
-
-    const findAppointmentInSameDate = await appointmentsRepository.findByDate(appointmentDate);
+    const findAppointmentInSameDate = await this.appointmentsRepository.findByDate(
+      appointmentDate,
+    );
 
     if (findAppointmentInSameDate) {
       throw new AppError('This appointment is already booked');
     }
 
-    const appointment = appointmentsRepository.create({
+    const appointment = await this.appointmentsRepository.create({
       provider_id,
-      date: appointmentDate
+      date: appointmentDate,
     });
-
-    await appointmentsRepository.save(appointment);
 
     return appointment;
   }
