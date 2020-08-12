@@ -4,9 +4,11 @@ import { container } from 'tsyringe';
 import CreateAppointmentService from '@modules/appointments/services/CreateAppointmentServices';
 import ensureAuthenticated from '@modules/users/infra/http/middlewares/ensureAuthenticated';
 import AppointmentsController from '../controllers/AppointmentController';
+import ProviderAppointmentsController from '../controllers/ProviderAppointmentsController';
 
 const appointementsRouter = Router();
 const appointmentsController = new AppointmentsController();
+const providerAppointmentsController = new ProviderAppointmentsController();
 
 appointementsRouter.use(ensureAuthenticated);
 
@@ -18,5 +20,7 @@ appointementsRouter.use(ensureAuthenticated);
 // });
 
 appointementsRouter.post('/', appointmentsController.create);
+appointementsRouter.get('/me', providerAppointmentsController.index);
 
 export default appointementsRouter;
+  

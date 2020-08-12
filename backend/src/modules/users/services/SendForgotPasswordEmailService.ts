@@ -1,5 +1,6 @@
 import User from '../infra/typeorm/entities/User';
 import IMailProvider from '@shared/container/providers/MailProvider/models/IMailProvider';
+import path from 'path';
 
 import AppError from '@shared/errors/AppError';
 import IUsersRepository from '../repositories/IUsersRepository';
@@ -18,24 +19,39 @@ class SendForgotPasswordEmailService {
     @inject('MailProvider')
     private mailProvider: IMailProvider,
 
-    @inject('UserTokenrepository')
+    @inject('UserTokenRepository')
     private userTokenRepository: IUserTokenRepository,
   ) {}
   public async execute({ email }: IRequest): Promise<void> {
-    const checkEmailExists = await this.usersRepository.findByEmail(email);
+    const user = await this.usersRepository.findByEmail(email);
 
-    if (!checkEmailExists) {
+    if (!user) {
       throw new AppError('User does not existis.');
     }
 
-    const { token } = await this.userTokenRepository.generate(
-      checkEmailExists.id,
+    const { token } = await this.userTokenRepository.generate(user.id);
+
+    const forgotPasswordTemplate = path.resolve(
+      __dirname,
+      '..',
+      'views',
+      'forgot_password.hbs',
     );
 
-    await this.mailProvider.sendMail(
-      email,
-      `Pedido de recuperação de senha recebido:  ${token}`,
-    );
+    await this.mailProvider.sendMail({
+      to: {
+        name: user.name,
+        email: user.email,
+      },
+      subject: '[GoBarber] Recuperação de senha',
+      templateData: {
+        file: forgotPasswordTemplate,
+        variables: {
+          name: user.name,
+          link: `http:localhost:3000/reset_password?token=${token}`,
+        },
+      },
+    });
   }
 }
 export default SendForgotPasswordEmailService;
