@@ -13,7 +13,7 @@
 </h1>
 
 <h4 align="center"> 
-	🚧  GoBarber 🚀 Em desenvolvimento  🚧
+	🚧  GoBarber 🚀 Em construção  🚧
 </h4>
 
 <p align="center">
@@ -43,14 +43,15 @@ e também praticar os diversos conceitos de paterns e boas práticas utilizando 
 
 
 <a href="https://www.figma.com/file/1SxgOMojOB2zYT0Mdk28lB/Ecoleta?node-id=136%3A546">
-  <img alt="GoFinances" src="https://res.cloudinary.com/dgugs5dpz/image/upload/v1599794038/gobarberweb_m3ncjd.gif">
+  <img alt="GoBarber" src="https://res.cloudinary.com/dgugs5dpz/image/upload/v1599794038/gobarberweb_m3ncjd.gif">
 </a>
 
 ## 🚀 Como executar o projeto
 
-Este projeto é divido em duas partes:
+Este projeto é divido em três partes:
 1. Backend (pasta backend) 
-2. Frontend (pasta frontend)
+2. Frontend (pasta web)
+3. mobile (pasta mobile)
 
 💡 O Frontend precisa que o Backend esteja sendo executado para funcionar.
 
@@ -67,10 +68,10 @@ Ter um banco de dados sql, de preferência postgres.
 ```bash
 
 # Clone este repositório
-$ git clone https://github.com/CampossCaio/GoFinances.git
+$ git clone https://github.com/CampossCaio/GoBarber2.0.git
 
 # Acesse a pasta do projeto no terminal/cmd
-$ cd GoFinances
+$ cd GoBarber
 
 # Vá para a pasta server
 $ cd backend
@@ -95,13 +96,13 @@ $ npm run dev:server
 ```bash
 
 # Clone este repositório
-$ git clone https://github.com/CampossCaio/GoFinances.git
+$ git clone https://github.com/CampossCaio/GoBarber2.0.git
 
 # Acesse a pasta do projeto no seu terminal/cmd
-$ cd GoFinances
+$ cd GoBarber
 
 # Vá para a pasta da aplicação Front End
-$ cd frontend
+$ cd web
 
 # Instale as dependências
 $ npm install
@@ -110,6 +111,28 @@ $ npm install
 $ npm run start
 
 # A aplicação será aberta na porta:3000 - acesse http://localhost:3000
+
+```
+
+#### 🧭 Rodando a aplicação mobile (Frontend)
+
+```bash
+
+# Clone este repositório
+$ git clone https://github.com/CampossCaio/GoBarber2.0.git
+
+# Acesse a pasta do projeto no seu terminal/cmd
+$ cd GoBarber
+
+# Vá para a pasta da aplicação Front End
+$ cd mobile
+
+# Instale as dependências
+$ npm install
+
+# Execute a aplicação em modo de desenvolvimento
+$ npm run android ou npm run ios
+
 
 ```
 
@@ -124,7 +147,12 @@ As seguintes ferramentas foram usadas na construção do projeto:
 -   **[React Router Dom](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom)**
 -   **[React Icons](https://react-icons.github.io/react-icons/)**
 -   **[Axios](https://github.com/axios/axios)**
--   **[React Dropzone](https://github.com/react-dropzone/react-dropzone)**
+
+#### **Mobile**  ([React Native](https://reactnative.dev/)  +  [TypeScript](https://www.typescriptlang.org/))
+
+-   **[React Navigation](https://reactnavigation.org/)**
+-   **[React Icons](https://react-icons.github.io/react-icons/)**
+-   **[Axios](https://github.com/axios/axios)**
 
 
 
