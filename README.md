@@ -43,7 +43,7 @@ e também praticar os diversos conceitos de paterns e boas práticas utilizando 
 
 
 <a href="https://www.figma.com/file/1SxgOMojOB2zYT0Mdk28lB/Ecoleta?node-id=136%3A546">
-  <img alt="GoBarber" src="https://res.cloudinary.com/dgugs5dpz/image/upload/v1599794038/gobarberweb_m3ncjd.gif">
+  <img alt="GoBarber" src="https://res.cloudinary.com/dgugs5dpz/image/upload/v1600132558/gobarberweb_swyhup.gif">
 </a>
 
 ## 🚀 Como executar o projeto
