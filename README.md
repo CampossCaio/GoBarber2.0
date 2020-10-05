@@ -46,6 +46,13 @@ e também praticar os diversos conceitos de paterns e boas práticas utilizando 
   <img alt="GoBarber" src="https://res.cloudinary.com/dgugs5dpz/image/upload/v1600132558/gobarberweb_swyhup.gif">
 </a>
 
+<p align="center">
+ <a href="https://www.figma.com/file/1SxgOMojOB2zYT0Mdk28lB/Ecoleta?node-id=136%3A546">
+  <img alt="GoBarber" src="https://res.cloudinary.com/dgugs5dpz/image/upload/v1601941919/Peek_2020-10-05_20-51_caegep.gif">
+</a>
+</p>
+
+
 ## 🚀 Como executar o projeto
 
 Este projeto é divido em três partes:
