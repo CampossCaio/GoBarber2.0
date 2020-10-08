@@ -24,7 +24,10 @@
   },
   "plugins": ["react", "@typescript-eslint", "react-hooks", "prettier"],
   "rules": {
+    "import/no-duplicates": "off",
     "react-hooks/rules-of-hooks": "error",
+    "camelcase": "off",
+    "no-console": "off",
     "react/jsx-props-no-spreading": "off",
     "@typescript-eslint/ban-types": "off",
     "no-unused-expressions": "off",
